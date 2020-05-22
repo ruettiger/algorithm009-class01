@@ -122,3 +122,33 @@ class Solution {
         }
     }
 }
+//加一
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int[] newdigits = null;
+        if (digits[digits.length - 1] < 9) {
+            digits[digits.length - 1]++;
+            newdigits = digits;
+        } else {
+            int i = 0;
+            for (i = 0; i < digits.length; i++) {
+                if (digits[digits.length - 1 - i] < 9) {
+                    digits[digits.length - 1 - i]++;
+                    break;
+                }else{
+                    digits[digits.length - 1 - i] = 0;
+                }
+            }
+            if (i == digits.length&&digits[0]==0) {
+                newdigits = new int[digits.length + 1];
+                newdigits[0] = 1;
+                for (int j = 0; j < digits.length; j++) {
+                    newdigits[j + 1] = 0;
+                }
+            }else{
+                newdigits = digits;
+            }
+        }
+        return newdigits;
+    }
+}
